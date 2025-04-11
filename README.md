@@ -1,3 +1,3 @@
-# {{REPO_NAME}}
+# html-learning
 
-Welcome to the {{REPO_NAME}} repository!
+Welcome to the html-learning repository!
