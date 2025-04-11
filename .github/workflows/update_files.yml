@@ -1,0 +1,59 @@
+name: Update README and LICENSE
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-files:
+    # ✅ Skip running in the template repository itself
+    if: ${{ github.repository != 'Abhi-0508/standard-project-template-python' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # 📥 Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 🚦 Step 2: Prevent loop from bot commits
+      - name: Prevent loop - skip if bot commit
+        if: "${{ !startsWith(github.event.head_commit.message, 'Auto-update') }}"
+        run: echo "✅ Not a bot commit, proceeding."
+
+      # 📝 Step 3: Replace placeholders
+      - name: Replace Placeholders
+        if: "${{ !startsWith(github.event.head_commit.message, 'Auto-update') }}"
+        run: |
+          if grep -q '{{REPO_NAME}}' README.md; then
+            echo "🔍 Placeholders found, replacing..."
+            repo_name=$(basename $GITHUB_REPOSITORY)
+            year=$(date +'%Y')
+            author="Abhishek Radhakrishnan"
+
+            sed -i "s/{{REPO_NAME}}/$repo_name/g" README.md
+            sed -i "s/{{YEAR}}/$year/g" LICENSE
+            sed -i "s/{{AUTHOR}}/$author/g" LICENSE
+          else
+            echo "✅ No placeholders found, skipping replacement."
+          fi
+
+      # 💾 Step 4: Commit changes
+      - name: Commit changes
+        if: "${{ !startsWith(github.event.head_commit.message, 'Auto-update') }}"
+        run: |
+          git config --global user.name 'my-automation-actions[bot]'
+          git config --global user.email 'my-automation-actions[bot]@noreply.com'
+
+          git add README.md LICENSE || echo "✅ No files to add."
+
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit."
+          else
+            git commit -m "Auto-update README and LICENSE files with repository name, year and author information"
+            git push
+          fi
