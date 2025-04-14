@@ -3,6 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>My HTML Learning Journey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+    
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    
+        form {
+            margin-top: 20px;
+        }
+    
+        input[type="text"],
+        input[type="email"] {
+            width: 200px;
+            padding: 5px;
+        }
+    
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
 </head>
 <body>
     <div align="center">
@@ -35,6 +75,40 @@
         <li>Save and view in browser</li>
         <li>Push changes to GitHub</li>
     </ol>
+
+    <h2>My Learning Schedule</h2>
+
+    <table border="1">
+        <tr>
+            <th>Day</th>
+            <th>Topic</th>
+        </tr>
+        <tr>
+            <td>Day 1</td>
+            <td>HTML Basics</td>
+        </tr>
+        <tr>
+            <td>Day 2</td>
+            <td>HTML Tables & Forms</td>
+        </tr>
+        <tr>
+            <td>Day 3</td>
+            <td>CSS Styling</td>
+        </tr>
+    </table>
+
+    <h2>Subscribe to my updates</h2>
+
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Subscribe">
+    </form>
+
 
 
 </body>
