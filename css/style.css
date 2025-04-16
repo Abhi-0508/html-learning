@@ -35,3 +35,29 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+textarea {
+    width: 300px;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  form input[type="submit"] {
+    background-color: #2196F3;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #1976D2;
+  }
+  
