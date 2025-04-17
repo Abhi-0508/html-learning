@@ -110,4 +110,31 @@ textarea {
     margin-bottom: 20px;
   }
   
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+
+  
+  @media (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
+  
+    nav {
+      flex-direction: column;
+    }
+  }
   
