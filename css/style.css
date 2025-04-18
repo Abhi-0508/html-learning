@@ -1,165 +1,172 @@
+/* -------------------
+   BASE STYLES
+-------------------- */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  margin: 20px;
+  transition: all 0.3s ease;
 }
 
-table {
-    width: 50%;
-    border-collapse: collapse;
+main {
+  font-size: 1.1rem;
 }
 
-table, th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
+/* -------------------
+   NAVIGATION BAR
+-------------------- */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #ddd;
+}
+
+/* -------------------
+   FORMS
+-------------------- */
 form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 input[type="text"],
-input[type="email"] {
-    width: 200px;
-    padding: 5px;
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
+  background-color: #2196F3;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+  background-color: #1976D2;
 }
 
-textarea {
-    width: 300px;
-    padding: 5px;
-    font-family: Arial, sans-serif;
-  }
-  
-  form input[type="text"],
-  form input[type="email"],
-  form textarea {
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  form input[type="submit"] {
-    background-color: #2196F3;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  form input[type="submit"]:hover {
-    background-color: #1976D2;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    background-color: #f2f2f2;
+/* -------------------
+   TABLES
+-------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* -------------------
+   TOGGLE BUTTONS
+-------------------- */
+#theme-toggle,
+#nav-toggle {
+  margin: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#nav-toggle {
+  display: none;
+  font-size: 18px;
+  padding: 8px 12px;
+}
+
+/* -------------------
+   DARK MODE
+-------------------- */
+.dark-mode {
+  background-color: #121212;
+  color: #f2f2f2;
+}
+
+.dark-mode nav {
+  background-color: #1f1f1f;
+}
+
+.dark-mode a {
+  color: #f2f2f2;
+}
+
+/* -------------------
+   FORM HOVER TIPS
+-------------------- */
+.form-tip {
+  display: none;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* (Note: JS handles visibility, not + selector) */
+
+/* -------------------
+   RESPONSIVE LAYOUT
+-------------------- */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
     padding: 10px;
   }
-  
-  nav a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover {
-    background-color: #ddd;
-  }
-
-  @media (max-width: 600px) {
-    nav {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    body {
-      padding: 10px;
-    }
-  
-    main {
-      font-size: 1rem;
-    }
-  
-    table {
-      width: 100%;
-    }
-  
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
 
   nav {
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+  #nav-toggle {
+    display: block;
+  }
+
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nav-menu.show {
+    display: flex;
+  }
+
+  table {
+    width: 100%;
+  }
+
   img {
     max-width: 100%;
     height: auto;
   }
-
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th, td {
-    padding: 8px;
-    border: 1px solid #ccc;
-  }
-
-  
-  @media (max-width: 600px) {
-    body {
-      font-size: 14px;
-    }
-  
-    nav {
-      flex-direction: column;
-    }
-  }
-
-  /* Default light mode (already active) */
-  body {
-    background-color: white;
-    color: black;
-    transition: all 0.3s ease;
-  }
-
-  .dark-mode {
-    background-color: #121212;
-    color: #f2f2f2;
-  }
-
-  .dark-mode nav {
-    background-color: #1f1f1f;
-  }
-
-  .dark-mode a {
-    color: #f2f2f2;
-  }
-
-  #theme-toggle {
-    margin: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
+}
