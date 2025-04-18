@@ -8,3 +8,12 @@ if (form) {
     form.reset(); // Clear the form fields
   });
 }
+
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+}
